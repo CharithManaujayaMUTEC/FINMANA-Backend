@@ -1,9 +1,9 @@
-const express = require("express");
-const { getAllIncomes, addIncome } = require("../controllers/incomeController");
+import express from "express"; // ES module import
+import { getAllIncomes, addIncome } from "../controllers/incomeController.js"; // ES module import
 
 const router = express.Router();
 
 router.get("/", getAllIncomes);
 router.post("/", addIncome);
 
-module.exports = router;
+export default router; // ES module export

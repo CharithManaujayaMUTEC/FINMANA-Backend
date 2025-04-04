@@ -1,7 +1,7 @@
-const Expenditure = require("../models/Expenditure.js");
+import Expenditure from "../models/Expenditure.js"; // ES module import
 
 // Get all expenditures
-const getAllExpenditures = async (req, res) => {
+export const getAllExpenditures = async (req, res) => {
   try {
     const expenditures = await Expenditure.find();
     res.status(200).json(expenditures);
@@ -11,7 +11,7 @@ const getAllExpenditures = async (req, res) => {
 };
 
 // Add a new expenditure
-const addExpenditure = async (req, res) => {
+export const addExpenditure = async (req, res) => {
   const { date, type, amount, account } = req.body;
   try {
     const expenditure = new Expenditure({ date, type, amount, account });
@@ -21,5 +21,3 @@ const addExpenditure = async (req, res) => {
     res.status(500).json({ message: "Error adding expenditure" });
   }
 };
-
-module.exports = { getAllExpenditures, addExpenditure };

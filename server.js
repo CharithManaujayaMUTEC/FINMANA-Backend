@@ -1,11 +1,13 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
-const bodyParser = require("body-parser");
-require("dotenv").config();
+import express from "express"; // ES module import
+import mongoose from "mongoose"; // ES module import
+import cors from "cors"; // ES module import
+import bodyParser from "body-parser"; // ES module import
+import dotenv from "dotenv"; // ES module import
 
-const incomeRoutes = require("./routes/incomeRoutes");
-const expenditureRoutes = require("./routes/expenditureRoutes");
+import incomeRoutes from "./routes/incomeRoutes.js"; // ES module import
+import expenditureRoutes from "./routes/expenditureRoutes.js"; // ES module import
+
+dotenv.config(); // Load environment variables
 
 const app = express(); // Middleware
 app.use(cors());

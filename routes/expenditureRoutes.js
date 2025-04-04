@@ -1,12 +1,12 @@
-const express = require("express");
-const {
+import express from "express"; // ES module import
+import {
   getAllExpenditures,
   addExpenditure,
-} = require("../controllers/expenditureController");
+} from "../controllers/expenditureController.js"; // ES module import
 
 const router = express.Router();
 
 router.get("/", getAllExpenditures);
 router.post("/", addExpenditure);
 
-module.exports = router;
+export default router; // ES module export

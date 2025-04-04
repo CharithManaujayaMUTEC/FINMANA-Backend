@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const ExpenditureSchema = new mongoose.Schema({
   date: { type: Date, required: true },
@@ -8,4 +8,4 @@ const ExpenditureSchema = new mongoose.Schema({
 });
 
 const Expenditure = mongoose.model("Expenditure", ExpenditureSchema);
-module.exports = Expenditure;
+export default Expenditure; // ES module export

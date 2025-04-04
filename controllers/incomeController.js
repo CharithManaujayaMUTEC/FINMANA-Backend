@@ -1,7 +1,7 @@
-import Income from "../models/Income.js";
+import Income from "../models/income.js"; // ES module import
 
 // Get all incomes
-const getAllIncomes = async (req, res) => {
+export const getAllIncomes = async (req, res) => {
   try {
     const incomes = await Income.find();
     res.status(200).json(incomes);
@@ -11,7 +11,7 @@ const getAllIncomes = async (req, res) => {
 };
 
 // Add a new income
-const addIncome = async (req, res) => {
+export const addIncome = async (req, res) => {
   const { date, type, amount, account } = req.body;
   try {
     const income = new Income({ date, type, amount, account });
@@ -21,5 +21,3 @@ const addIncome = async (req, res) => {
     res.status(500).json({ message: "Error adding income" });
   }
 };
-
-export default { getAllIncomes, addIncome };
