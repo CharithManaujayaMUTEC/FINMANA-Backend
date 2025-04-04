@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: backend
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URL=mongodb+srv://AyshaAjward:aysha123@finance.jfpwb.mongodb.net/finance-tracker?retryWrites=true&w=majority&appName=Finance
+    volumes:
+      - .:/app
+    command: npm run dev # Uses nodemon for live reload
+    restart: unless-stopped

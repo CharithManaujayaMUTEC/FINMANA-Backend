@@ -1,8 +1,9 @@
-import express from "express"; // ES module import
-import mongoose from "mongoose"; // ES module import
-import cors from "cors"; // ES module import
-import bodyParser from "body-parser"; // ES module import
-import dotenv from "dotenv"; // ES module import
+import express from "express";
+import mongoose from "mongoose";
+import cors from "cors";
+import bodyParser from "body-parser";
+import dotenv from "dotenv";
+import userRoutes from "./routes/userRoutes.js";
 
 import incomeRoutes from "./routes/incomeRoutes.js"; // ES module import
 import expenditureRoutes from "./routes/expenditureRoutes.js"; // ES module import
@@ -13,6 +14,7 @@ const app = express(); // Middleware
 app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
+app.use("/api/users", userRoutes);
 
 // Connect to MongoDB
 mongoose
