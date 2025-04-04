@@ -1,31 +1,27 @@
-import express from "express";
-import cors from "cors";
-import { connectDB } from "./DB/Database.js";
-import bodyParser from "body-parser";
-import dotenv from "dotenv";
-import helmet from "helmet";
-import morgan from "morgan";
-import transactionRoutes from "./Routers/Transactions.js";
-import userRoutes from "./Routers/userRouter.js";
-import path from "path";
-
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const bodyParser = require("body-parser");
 require("dotenv").config();
-const app = express();
-const PORT = process.env.PORT || 5000;
 
-connectDB();
+const incomeRoutes = require("./routes/incomeRoutes");
+const expenditureRoutes = require("./routes/expenditureRoutes");
 
-// Middleware
+const app = express(); // Middleware
 app.use(cors());
-app.use(express.json());
-// Router
-app.use("/api/v1", transactionRoutes);
-app.use("/api/auth", userRoutes);
+app.use(bodyParser.json());
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+// Connect to MongoDB
+mongoose
+  .connect(process.env.MONGO_URL)
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.error("MongoDB connection error:", err));
 
-app.listen(port, () => {
-  console.log(`Server is listening on http://localhost:${port}`);
+// Routes
+app.use("/api/incomes", incomeRoutes);
+app.use("/api/expenditures", expenditureRoutes);
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });

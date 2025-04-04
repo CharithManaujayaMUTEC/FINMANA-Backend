@@ -1,4 +1,4 @@
-import User from "../models/UserSchema.js";
+import User from "../models/user.js";
 import bcrypt from "bcrypt";
 
 export const registerControllers = async (req, res, next) => {
@@ -121,7 +121,7 @@ export const allUsers = async (req, res, next) => {
   try {
     const user = await User.find({ _id: { $ne: req.params.id } }).select([
       "email",
-      "username",
+      "name",
       "avatarImage",
       "_id",
     ]);
