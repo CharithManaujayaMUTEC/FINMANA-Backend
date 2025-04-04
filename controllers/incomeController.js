@@ -12,6 +12,7 @@ export const getAllIncomes = async (req, res) => {
 
 // Add a new income
 export const addIncome = async (req, res) => {
+  console.log(req.body);
   const { date, type, amount, account } = req.body;
   try {
     const income = new Income({ date, type, amount, account });

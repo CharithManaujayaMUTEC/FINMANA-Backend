@@ -7,9 +7,10 @@ import dotenv from "dotenv"; // ES module import
 import incomeRoutes from "./routes/incomeRoutes.js"; // ES module import
 import expenditureRoutes from "./routes/expenditureRoutes.js"; // ES module import
 
-dotenv.config(); // Load environment variables
+dotenv.config(); // Load environment variable
 
 const app = express(); // Middleware
+app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
 
