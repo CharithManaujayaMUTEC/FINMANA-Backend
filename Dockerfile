@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Build the React app for production
-RUN npm run build
+RUN npm run dev
 
 # Step 5: Install nodemon globally for hot reloading in development
 RUN npm install -g nodemon
