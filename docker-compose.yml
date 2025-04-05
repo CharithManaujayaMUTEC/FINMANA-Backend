@@ -12,5 +12,5 @@ services:
       - MONGO_URI=mongodb+srv://AyshaAjward:aysha123@finance.jfpwb.mongodb.net/finance-tracker?retryWrites=true&w=majority&appName=Finance
     volumes:
       - .:/app
-    command: npm run dev # Uses nodemon for live reload
+    command: npm run dev
     restart: unless-stopped
