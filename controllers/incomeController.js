@@ -1,4 +1,4 @@
-import Income from "../models/income.js"; // ES module import
+import Income from "../models/Income.js"; // ES module import
 
 // Get all incomes
 export const getAllIncomes = async (req, res) => {
