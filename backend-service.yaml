@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend-deployment
+  namespace: webapps   
   labels:
     app: backend
 spec:
@@ -16,7 +17,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: backend:latest # Replace with your built backend image name
+          image: backend:latest 
           ports:
             - containerPort: 5000
           env:
