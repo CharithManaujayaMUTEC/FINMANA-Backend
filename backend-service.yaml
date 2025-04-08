@@ -22,7 +22,7 @@ spec:
             - containerPort: 5000
           env:
             - name: MONGO_URI
-              value: mongodb://mongo:27017/finance-tracker
+              value: mongodb+srv://AyshaAjward:aysha123@finance.jfpwb.mongodb.net/finance-tracker?retryWrites=true&w=majority&appName=Finance
           resources:
             limits:
               memory: "512Mi"
