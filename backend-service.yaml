@@ -22,7 +22,7 @@ spec:
             - containerPort: 5000
           env:
             - name: MONGO_URI
-              value: mongodb://mongo:27017/yourdbname
+              value: mongodb://mongo:27017/finance-tracker
           resources:
             limits:
               memory: "512Mi"
